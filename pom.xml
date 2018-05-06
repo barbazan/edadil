@@ -47,6 +47,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- allowed values: R7, 1.0, 1.5, 2.0 or none -->
 		<wtp.version>none</wtp.version>
+		<projectName>ROOT</projectName>
 	</properties>
 	<dependencies>
 		<!--  WICKET DEPENDENCIES -->
@@ -165,6 +166,7 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<finalName>${projectName}</finalName>
 		<resources>
 			<resource>
 				<filtering>false</filtering>
