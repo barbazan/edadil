@@ -3,10 +3,12 @@ package com.barbazan.edadil.wicket.pages.good;
 import com.barbazan.edadil.beans.GoodAction;
 import com.barbazan.edadil.beans.GoodPrice;
 import com.barbazan.edadil.dao.ShopDao;
+import com.barbazan.edadil.utils.Time;
 import com.barbazan.edadil.utils.hibernate.HibernateContext;
 import com.barbazan.edadil.wicket.pages.BasePage;
 import com.googlecode.wicket.jquery.core.Options;
 import com.googlecode.wicket.jquery.ui.form.datepicker.DatePicker;
+import org.apache.wicket.extensions.markup.html.form.DateTextField;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -87,8 +89,8 @@ public class CreateGoodActionPage extends BasePage {
             protected void populateItem(ListItem<GoodAction> item) {
                 item.add(new Label("shop", (IModel<String>) () -> item.getModelObject().getGoodPrice().getShop().getName()));
                 item.add(new Label("good", (IModel<String>) () -> item.getModelObject().getGoodPrice().getGood().getName()));
-                item.add(new Label("startDate", (IModel<String>) () -> String.valueOf(item.getModelObject().getStartDate())));
-                item.add(new Label("endDate", (IModel<String>) () -> String.valueOf(item.getModelObject().getEndDate())));
+                item.add(new Label("startDate", (IModel<String>) () -> Time.DATE_FORMAT_2.format(item.getModelObject().getStartDate())));
+                item.add(new Label("endDate", (IModel<String>) () -> Time.DATE_FORMAT_2.format(item.getModelObject().getEndDate())));
                 item.add(new Label("price", (IModel<String>) () -> String.valueOf(item.getModelObject().getGoodPrice().getPrice())));
                 item.add(new Label("discount", (IModel<String>) () -> String.valueOf(Math.round(item.getModelObject().getDiscount() * 100)) + " %"));
                 item.add(new Label("discountPrice", (IModel<String>) () -> String.valueOf(item.getModelObject().getGoodPrice().getPrice() - item.getModelObject().getGoodPrice().getPrice() * item.getModelObject().getDiscount())));
