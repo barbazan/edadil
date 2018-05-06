@@ -15,9 +15,9 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import java.util.List;
@@ -27,10 +27,10 @@ public class CreateShopPage extends BasePage {
     private Shop shop = new Shop();
 
     public CreateShopPage() {
-        add(new Form<Shop>("form") {
+        add(new Form<Shop>("form", new CompoundPropertyModel<>(shop)) {
             {
-                add(new RequiredTextField<String>("name", new PropertyModel<>(shop, "name")));
-                add(new DropDownChoice<>("shopCategory", new PropertyModel<>(shop, "shopCategory"), new LoadableDetachableModel<List<? extends ShopCategory>>() {
+                add(new RequiredTextField<String>("name"));
+                add(new DropDownChoice<>("shopCategory", new LoadableDetachableModel<List<? extends ShopCategory>>() {
                     @Override
                     protected List<? extends ShopCategory> load() {
                         return ShopDao.getAllShopCategories();

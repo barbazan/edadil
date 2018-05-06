@@ -9,6 +9,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.PropertyModel;
@@ -20,9 +21,9 @@ public class CreateGoodCategoryPage extends BasePage {
     private GoodCategory goodCategory = new GoodCategory();
 
     public CreateGoodCategoryPage() {
-        add(new Form<GoodCategory>("form") {
+        add(new Form<GoodCategory>("form", new CompoundPropertyModel<>(goodCategory)) {
             {
-                add(new RequiredTextField<String>("name", new PropertyModel<>(goodCategory, "name")));
+                add(new RequiredTextField<String>("name"));
             }
             @Override
             protected void onSubmit() {

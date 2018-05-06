@@ -9,10 +9,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.model.Model;
-import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.*;
 
 import java.util.List;
 
@@ -21,9 +18,9 @@ public class CreateShopCategoryPage extends BasePage {
     private ShopCategory shopCategory = new ShopCategory();
 
     public CreateShopCategoryPage() {
-        add(new Form<ShopCategory>("form") {
+        add(new Form<ShopCategory>("form", new CompoundPropertyModel<>(shopCategory)) {
             {
-                add(new RequiredTextField<String>("name", new PropertyModel<>(shopCategory, "name")));
+                add(new RequiredTextField<String>("name"));
             }
             @Override
             protected void onSubmit() {

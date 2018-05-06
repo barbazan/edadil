@@ -14,9 +14,9 @@ import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import java.util.List;
@@ -27,9 +27,9 @@ public class CreateGoodPricePage extends BasePage {
 
     public CreateGoodPricePage(PageParameters parameters) {
         int shopId = parameters.get("shopId").toInt(0);
-        add(new Form<Good>("form") {
+        add(new Form<GoodPrice>("form", new CompoundPropertyModel<>(goodPrice)) {
             {
-                add(new DropDownChoice<>("shop", new PropertyModel<>(goodPrice, "shop"), new LoadableDetachableModel<List<? extends Shop>>() {
+                add(new DropDownChoice<>("shop", new LoadableDetachableModel<List<? extends Shop>>() {
                     @Override
                     protected List<? extends Shop> load() {
                         return ShopDao.getAllShops();
@@ -50,7 +50,7 @@ public class CreateGoodPricePage extends BasePage {
                         return HibernateContext.get(Shop.class, Integer.parseInt(id));
                     }
                 }).setRequired(true));
-                add(new DropDownChoice<>("good", new PropertyModel<>(goodPrice, "good"), new LoadableDetachableModel<List<? extends Good>>() {
+                add(new DropDownChoice<>("good", new LoadableDetachableModel<List<? extends Good>>() {
                     @Override
                     protected List<? extends Good> load() {
                         return ShopDao.getAllGoods();
@@ -71,7 +71,7 @@ public class CreateGoodPricePage extends BasePage {
                         return HibernateContext.get(Good.class, Integer.parseInt(id));
                     }
                 }).setRequired(true));
-                add(new RequiredTextField<Float>("price", new PropertyModel<>(goodPrice,"price")));
+                add(new RequiredTextField<Float>("price"));
             }
             @Override
             protected void onSubmit() {

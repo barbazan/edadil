@@ -12,9 +12,9 @@ import org.apache.wicket.markup.html.form.IChoiceRenderer;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.model.PropertyModel;
 
 import java.util.List;
 
@@ -23,9 +23,9 @@ public class CreateShopAddressPage extends BasePage {
     private ShopAddress shopAddress = new ShopAddress();
 
     public CreateShopAddressPage() {
-        add(new Form<Shop>("form") {
+        add(new Form<ShopAddress>("form", new CompoundPropertyModel<>(shopAddress)) {
             {
-                add(new DropDownChoice<Shop>("shop", new PropertyModel<>(shopAddress, "shop"), new LoadableDetachableModel<List<? extends Shop>>() {
+                add(new DropDownChoice<>("shop", new LoadableDetachableModel<List<? extends Shop>>() {
                     @Override
                     protected List<? extends Shop> load() {
                         return ShopDao.getAllShops();
@@ -46,8 +46,8 @@ public class CreateShopAddressPage extends BasePage {
                         return HibernateContext.get(Shop.class, Integer.parseInt(id));
                     }
                 }).setRequired(true));
-                add(new RequiredTextField<String>("street", new PropertyModel<>(shopAddress, "street")));
-                add(new RequiredTextField<String>("house", new PropertyModel<>(shopAddress, "house")));
+                add(new RequiredTextField<String>("street"));
+                add(new RequiredTextField<String>("house"));
             }
             @Override
             protected void onSubmit() {

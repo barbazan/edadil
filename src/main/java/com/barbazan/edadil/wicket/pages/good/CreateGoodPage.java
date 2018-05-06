@@ -12,10 +12,7 @@ import org.apache.wicket.markup.html.form.IChoiceRenderer;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.model.Model;
-import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.*;
 
 import java.util.List;
 
@@ -24,9 +21,9 @@ public class CreateGoodPage extends BasePage {
     private Good good = new Good();
 
     public CreateGoodPage() {
-        add(new Form<Good>("form") {
+        add(new Form<Good>("form", new CompoundPropertyModel<>(good)) {
             {
-                add(new DropDownChoice<>("goodCategory", new PropertyModel<>(good, "goodCategory"), new LoadableDetachableModel<List<? extends GoodCategory>>() {
+                add(new DropDownChoice<>("goodCategory", new LoadableDetachableModel<List<? extends GoodCategory>>() {
                     @Override
                     protected List<? extends GoodCategory> load() {
                         return ShopDao.getAllGoodCategories();
@@ -48,7 +45,7 @@ public class CreateGoodPage extends BasePage {
                     }
                 }).setRequired(true));
 
-                add(new RequiredTextField<String>("name", new PropertyModel<>(good, "name")));
+                add(new RequiredTextField<String>("name"));
             }
             @Override
             protected void onSubmit() {
@@ -71,7 +68,8 @@ public class CreateGoodPage extends BasePage {
         }) {
             @Override
             protected void populateItem(ListItem<Good> item) {
-                item.add(new Label("name", (IModel<String>) () -> item.getModelObject().getName()));
+                item.add(new Label("goodName", (IModel<String>) () -> item.getModelObject().getName()));
+                item.add(new Label("goodCategory", (IModel<String>) () -> item.getModelObject().getGoodCategory().getName()));
             }
         });
     }

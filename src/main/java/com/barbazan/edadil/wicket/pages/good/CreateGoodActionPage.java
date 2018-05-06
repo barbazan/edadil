@@ -86,8 +86,10 @@ public class CreateGoodActionPage extends BasePage {
             protected void populateItem(ListItem<GoodAction> item) {
                 item.add(new Label("shop", (IModel<String>) () -> item.getModelObject().getGoodPrice().getShop().getName()));
                 item.add(new Label("good", (IModel<String>) () -> item.getModelObject().getGoodPrice().getGood().getName()));
+                item.add(new Label("startDate", (IModel<String>) () -> String.valueOf(item.getModelObject().getStartDate())));
+                item.add(new Label("endDate", (IModel<String>) () -> String.valueOf(item.getModelObject().getEndDate())));
                 item.add(new Label("price", (IModel<String>) () -> String.valueOf(item.getModelObject().getGoodPrice().getPrice())));
-                item.add(new Label("discount", (IModel<String>) () -> String.valueOf(item.getModelObject().getDiscount() * 100) + "%"));
+                item.add(new Label("discount", (IModel<String>) () -> String.valueOf(Math.round(item.getModelObject().getDiscount() * 100)) + " %"));
                 item.add(new Label("discountPrice", (IModel<String>) () -> String.valueOf(item.getModelObject().getGoodPrice().getPrice() - item.getModelObject().getGoodPrice().getPrice() * item.getModelObject().getDiscount())));
             }
         });
