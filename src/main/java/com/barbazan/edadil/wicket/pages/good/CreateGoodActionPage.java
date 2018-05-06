@@ -58,51 +58,8 @@ public class CreateGoodActionPage extends BasePage {
                             }
                         }
                         return null;
-//                        return HibernateContext.get(GoodPrice.class, Integer.parseInt(id));
                     }
                 }).setRequired(true));
-//                add(new DropDownChoice<>("goodPrice.shop", new LoadableDetachableModel<List<? extends Shop>>() {
-//                    @Override
-//                    protected List<? extends Shop> load() {
-//                        return ShopDao.getAllShops();
-//                    }
-//                }, new IChoiceRenderer<Shop>() {
-//                    @Override
-//                    public Object getDisplayValue(Shop object) {
-//                        return object.getName();
-//                    }
-//
-//                    @Override
-//                    public String getIdValue(Shop object, int index) {
-//                        return String.valueOf(object.getId());
-//                    }
-//
-//                    @Override
-//                    public Shop getObject(String id, IModel<? extends List<? extends Shop>> choices) {
-//                        return HibernateContext.get(Shop.class, Integer.parseInt(id));
-//                    }
-//                }).setRequired(true));
-//                add(new DropDownChoice<>("goodPrice.good", new LoadableDetachableModel<List<? extends Good>>() {
-//                    @Override
-//                    protected List<? extends Good> load() {
-//                        return ShopDao.getGood();
-//                    }
-//                }, new IChoiceRenderer<Good>() {
-//                    @Override
-//                    public Object getDisplayValue(Good object) {
-//                        return object.getName();
-//                    }
-//
-//                    @Override
-//                    public String getIdValue(Good object, int index) {
-//                        return String.valueOf(object.getId());
-//                    }
-//
-//                    @Override
-//                    public Good getObject(String id, IModel<? extends List<? extends Good>> choices) {
-//                        return HibernateContext.get(Good.class, Integer.parseInt(id));
-//                    }
-//                }).setRequired(true));
                 add(new DateTextField("startDate", "dd/MM/yyyy"));
                 add(new DateTextField("endDate", "dd/MM/yyyy"));
                 add(new RequiredTextField<Float>("discount"));
