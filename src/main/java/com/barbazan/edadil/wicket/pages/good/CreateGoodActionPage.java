@@ -5,7 +5,8 @@ import com.barbazan.edadil.beans.GoodPrice;
 import com.barbazan.edadil.dao.ShopDao;
 import com.barbazan.edadil.utils.hibernate.HibernateContext;
 import com.barbazan.edadil.wicket.pages.BasePage;
-import org.apache.wicket.extensions.markup.html.form.DateTextField;
+import com.googlecode.wicket.jquery.core.Options;
+import com.googlecode.wicket.jquery.ui.form.datepicker.DatePicker;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -60,8 +61,8 @@ public class CreateGoodActionPage extends BasePage {
                         return null;
                     }
                 }).setRequired(true));
-                add(new DateTextField("startDate", "dd/MM/yyyy"));
-                add(new DateTextField("endDate", "dd/MM/yyyy"));
+                add(new DatePicker("startDate", "dd/MM/yyyy", new Options()).setRequired(true));
+                add(new DatePicker("endDate", "dd/MM/yyyy", new Options()).setRequired(true));
                 add(new RequiredTextField<Float>("discount"));
             }
             @Override
