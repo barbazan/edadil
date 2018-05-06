@@ -2,12 +2,13 @@ package com.barbazan.edadil.wicket;
 
 import com.barbazan.edadil.dao.ShopDao;
 import com.barbazan.edadil.utils.hibernate.HibernateContext;
-import com.barbazan.edadil.wicket.pages.HomePage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodActionPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodCategoryPage;
-import com.barbazan.edadil.wicket.pages.good.CreateGoodPricePage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodPage;
-import com.barbazan.edadil.wicket.pages.shop.*;
+import com.barbazan.edadil.wicket.pages.good.CreateGoodPricePage;
+import com.barbazan.edadil.wicket.pages.shop.CreateShopAddressPage;
+import com.barbazan.edadil.wicket.pages.shop.CreateShopCategoryPage;
+import com.barbazan.edadil.wicket.pages.shop.CreateShopPage;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Application;
 import org.apache.wicket.RuntimeConfigurationType;
@@ -32,7 +33,7 @@ public class WicketApplication extends WebApplication {
 
 	@Override
 	public Class<? extends WebPage> getHomePage() {
-		return HomePage.class;
+		return CreateShopCategoryPage.class;
 	}
 
 	@Override
@@ -49,7 +50,6 @@ public class WicketApplication extends WebApplication {
         getMarkupSettings().setDefaultMarkupEncoding("UTF-8");
         getRequestCycleSettings().setResponseRequestEncoding("UTF-8");
 
-        mountPage("/home", HomePage.class);
         mountPage("/createShopCategory", CreateShopCategoryPage.class);
         mountPage("/createShop", CreateShopPage.class);
         mountPage("/createShopAddress", CreateShopAddressPage.class);
