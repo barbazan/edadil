@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:wicket="http://wicket.apache.org">
+<body>
+<wicket:extend>
+    <div class="mt">
+        <div class="mb">
+            <form wicket:id="form" action="" method="post">
+                <fieldset>
+                    <legend>Скидка</legend>
+                    <!--<select wicket:id="goodPrice.shop"></select>-->
+                    <!--<select wicket:id="goodPrice.good"></select>-->
+                    <select wicket:id="goodPrice"></select>
+                    <input wicket:id="startDate" type="text" placeholder="Дата начала dd/MM/yyyy">
+                    <input wicket:id="endDate" type="text" placeholder="Дата конца dd/MM/yyyy">
+                    <input wicket:id="discount" type="text" placeholder="Скидка">
+                    <input type="submit" value="Сохранить">
+                </fieldset>
+            </form>
+        </div>
+        <wicket:enclosure child="goodActions">
+            <table class="table_dark">
+                <tr>
+                    <th>Магазин</th>
+                    <th>Товар</th>
+                    <th>Цена</th>
+                    <th>Скидка</th>
+                    <th>Цена со скидкой</th>
+                </tr>
+                <tr wicket:id="goodActions">
+                    <td>
+                        <span wicket:id="shop"/>
+                    </td>
+                    <td>
+                        <span wicket:id="good"/>
+                    </td>
+                    <td>
+                        <span wicket:id="price"/>
+                    </td>
+                    <td>
+                        <span wicket:id="discount"/>
+                    </td>
+                    <td>
+                        <span wicket:id="discountPrice"/>
+                    </td>
+                </tr>
+            </table>
+        </wicket:enclosure>
+    </div>
+</wicket:extend>
+</body>
+</html>    

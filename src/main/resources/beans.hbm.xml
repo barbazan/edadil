@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.barbazan.edadil.beans.ShopCategory" table="ed_shop_category">
+        <cache usage="read-write"/>
+        <id name="id" column="id">
+            <generator class="sequence">
+                <param name="sequence">ed_shop_category_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" not-null="true"/>
+    </class>
+
+    <class name="com.barbazan.edadil.beans.Shop" table="ed_shop">
+        <cache usage="read-write"/>
+        <id name="id" column="id">
+            <generator class="sequence">
+                <param name="sequence">ed_shop_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="shopCategory" foreign-key="none" not-null="true"/>
+        <property name="name" not-null="true"/>
+    </class>
+
+    <class name="com.barbazan.edadil.beans.ShopAddress" table="ed_shop_address">
+        <cache usage="read-write"/>
+        <id name="id" column="id">
+            <generator class="sequence">
+                <param name="sequence">ed_shop_address_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="shop" foreign-key="none" not-null="true"/>
+        <property name="street" not-null="true"/>
+        <property name="house" not-null="true"/>
+    </class>
+
+    <class name="com.barbazan.edadil.beans.GoodCategory" table="ed_good_category">
+        <cache usage="read-write"/>
+        <id name="id" column="id">
+            <generator class="sequence">
+                <param name="sequence">ed_good_category_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" not-null="true"/>
+    </class>
+
+    <class name="com.barbazan.edadil.beans.Good" table="ed_good">
+        <cache usage="read-write"/>
+        <id name="id" column="id">
+            <generator class="sequence">
+                <param name="sequence">ed_good_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="goodCategory" foreign-key="none" not-null="true"/>
+        <property name="name" not-null="true"/>
+    </class>
+    
+    <class name="com.barbazan.edadil.beans.GoodPrice" table="ed_good_price">
+        <cache usage="read-write"/>
+        <id name="id" column="id">
+            <generator class="sequence">
+                <param name="sequence">ed_good_price_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="shop" foreign-key="none" not-null="true"/>
+        <many-to-one name="good" foreign-key="none" not-null="true"/>
+        <property name="price" type="float" not-null="true"/>
+    </class>
+
+    <class name="com.barbazan.edadil.beans.GoodAction" table="ed_good_action">
+        <cache usage="read-write"/>
+        <id name="id" column="id">
+            <generator class="sequence">
+                <param name="sequence">ed_good_action_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="goodPrice" foreign-key="none" not-null="true"/>
+        <property name="startDate" type="timestamp" not-null="true"/>
+        <property name="endDate" type="timestamp" not-null="true"/>
+        <property name="discount" type="float" not-null="true"/>
+    </class>
+
+</hibernate-mapping>

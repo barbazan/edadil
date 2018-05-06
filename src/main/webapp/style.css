@@ -1,0 +1,12 @@
+html, div, span, form, p, img, ul, li, a {padding: 0;margin: 0;}
+body {margin: 0px auto; min-width:480px; background-color: #3c3c3c; color:#fff; text-align:center; }
+body, input, textarea {font-family: Arial,sans-serif; font-size: 14px;}
+img {border: 0;max-width:100%;vertical-align:middle;font-size:0.5em;}
+li {list-style:none;}
+a {color: #ffffff;}
+p {display: inline;}
+h1 {margin: 0;}
+
+.mt {margin-top: 5px;}
+.mb {margin-bottom: 5px;}
+

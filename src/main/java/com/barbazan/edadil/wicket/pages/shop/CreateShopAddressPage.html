@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:wicket="http://wicket.apache.org">
+<body>
+<wicket:extend>
+    <div class="mt">
+        <div class="mb">
+            <form wicket:id="form" action="" method="post">
+                <fieldset>
+                    <legend>Адреса магазинов</legend>
+                    <select wicket:id="shop"></select>
+                    <input wicket:id="street" type="text" placeholder="Улица">
+                    <input wicket:id="house" type="text" placeholder="Дом">
+                    <input type="submit" value="Сохранить">
+                </fieldset>
+            </form>
+        </div>
+        <wicket:enclosure child="shopAddresses">
+            <table class="table_dark">
+                <tr>
+                    <th>Название магазина</th>
+                    <th>Адресс</th>
+                </tr>
+                <tr wicket:id="shopAddresses">
+                    <td>
+                        <span wicket:id="shop"/>
+                    </td>
+                    <td>
+                        <span wicket:id="address"/>
+                    </td>
+                </tr>
+            </table>
+        </wicket:enclosure>
+    </div>
+</wicket:extend>
+</body>
+</html>    
