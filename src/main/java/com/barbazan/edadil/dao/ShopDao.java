@@ -48,6 +48,7 @@ public class ShopDao {
         return (Shop)HibernateContext.getSession()
                 .createQuery("from Shop where name = :name")
                 .setString("name", name)
+                .setCacheable(true)
                 .setMaxResults(1)
                 .uniqueResult();
     }
@@ -56,6 +57,7 @@ public class ShopDao {
         return (ShopCategory)HibernateContext.getSession()
                 .createQuery("from ShopCategory where name = :name")
                 .setString("name", name)
+                .setCacheable(true)
                 .setMaxResults(1)
                 .uniqueResult();
     }
@@ -64,6 +66,7 @@ public class ShopDao {
     public static List<ShopCategory> getAllShopCategories() {
         return (List<ShopCategory>)HibernateContext.getSession()
                 .createQuery("from ShopCategory")
+                .setCacheable(true)
                 .list();
     }
 
@@ -71,6 +74,7 @@ public class ShopDao {
     public static List<Shop> getAllShops() {
         return (List<Shop>)HibernateContext.getSession()
                 .createQuery("from Shop")
+                .setCacheable(true)
                 .list();
     }
 
@@ -78,6 +82,7 @@ public class ShopDao {
     public static List<ShopAddress> getAllShopAddresses() {
         return (List<ShopAddress>)HibernateContext.getSession()
                 .createQuery("from ShopAddress")
+                .setCacheable(true)
                 .list();
     }
 
@@ -87,6 +92,7 @@ public class ShopDao {
                 .setInteger("shopId", shopAddress.getShop().getId())
                 .setString("street", shopAddress.getStreet())
                 .setString("house", shopAddress.getHouse())
+                .setCacheable(true)
                 .setMaxResults(1)
                 .uniqueResult();
     }
@@ -95,6 +101,7 @@ public class ShopDao {
         return (GoodCategory)HibernateContext.getSession()
                 .createQuery("from GoodCategory where name = :name")
                 .setString("name", name)
+                .setCacheable(true)
                 .setMaxResults(1)
                 .uniqueResult();
     }
@@ -103,6 +110,7 @@ public class ShopDao {
     public static List<GoodCategory> getAllGoodCategories() {
         return (List<GoodCategory>)HibernateContext.getSession()
                 .createQuery("from GoodCategory")
+                .setCacheable(true)
                 .list();
     }
 
@@ -110,6 +118,7 @@ public class ShopDao {
         return (Good)HibernateContext.getSession()
                 .createQuery("from Good where name = :name")
                 .setString("name", name)
+                .setCacheable(true)
                 .setMaxResults(1)
                 .uniqueResult();
     }
@@ -118,6 +127,7 @@ public class ShopDao {
     public static List<Good> getAllGoods() {
         return (List<Good>)HibernateContext.getSession()
                 .createQuery("from Good")
+                .setCacheable(true)
                 .list();
     }
 
@@ -127,6 +137,7 @@ public class ShopDao {
                 .createQuery("from GoodPrice where shop.id = :shopId and good.id = :goodId")
                 .setInteger("shopId", goodPrice.getShop().getId())
                 .setInteger("goodId", goodPrice.getGood().getId())
+                .setCacheable(true)
                 .setMaxResults(1)
                 .uniqueResult();
     }
@@ -136,6 +147,7 @@ public class ShopDao {
         return (List<GoodPrice>)HibernateContext.getSession()
                 .createQuery("from GoodPrice where shop.id = :shopId order by good.id desc")
                 .setInteger("shopId", shopId)
+                .setCacheable(true)
                 .list();
     }
 
@@ -143,6 +155,7 @@ public class ShopDao {
     public static List<GoodPrice> getAllGoodPrices() {
         return (List<GoodPrice>)HibernateContext.getSession()
                 .createQuery("from GoodPrice order by shop.id desc, good.id desc")
+                .setCacheable(true)
                 .list();
     }
 
@@ -151,6 +164,7 @@ public class ShopDao {
         return (List<GoodAction>)HibernateContext.getSession()
                 .createQuery("from GoodAction where goodPrice.shop.id = :shopId")
                 .setInteger("shopId", shopId)
+                .setCacheable(true)
                 .list();
     }
 
@@ -158,6 +172,7 @@ public class ShopDao {
     public static List<GoodAction> getAllGoodActions() {
         return (List<GoodAction>)HibernateContext.getSession()
                 .createQuery("from GoodAction order by goodPrice.shop.id desc, goodPrice.good.id desc")
+                .setCacheable(true)
                 .list();
     }
 }
