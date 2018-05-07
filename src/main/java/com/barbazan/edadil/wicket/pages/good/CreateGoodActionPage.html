@@ -7,10 +7,12 @@
             <form wicket:id="form" action="" method="post">
                 <fieldset>
                     <legend>Скидка</legend>
-                    <select wicket:id="goodPrice"></select>
+                    <select wicket:id="shop"></select>
+                    <select wicket:id="good"></select>
                     <input wicket:id="startDate" type="text" placeholder="Дата начала">
                     <input wicket:id="endDate" type="text" placeholder="Дата конца">
-                    <input wicket:id="discount" type="text" placeholder="Скидка">
+                    <input wicket:id="price" type="text" placeholder="Цена">
+                    <input wicket:id="discountPrice" type="text" placeholder="Цена со скидкой">
                     <input type="submit" value="Сохранить">
                 </fieldset>
             </form>
@@ -23,8 +25,8 @@
                     <th>Дата начала</th>
                     <th>Дата конца</th>
                     <th>Цена</th>
-                    <th>Скидка</th>
                     <th>Цена со скидкой</th>
+                    <th>Скидка</th>
                 </tr>
                 <tr wicket:id="goodActions">
                     <td>
@@ -43,10 +45,10 @@
                         <span wicket:id="price"/>
                     </td>
                     <td>
-                        <span wicket:id="discount"/>
+                        <span wicket:id="discountPrice"/>
                     </td>
                     <td>
-                        <span wicket:id="discountPrice"/>
+                        <span wicket:id="discount"/>
                     </td>
                 </tr>
             </table>

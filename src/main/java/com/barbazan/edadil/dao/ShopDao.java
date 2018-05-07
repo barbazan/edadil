@@ -132,37 +132,9 @@ public class ShopDao {
     }
 
     @SuppressWarnings("unchecked")
-    public static GoodPrice getGoodPrice(GoodPrice goodPrice) {
-        return (GoodPrice)HibernateContext.getSession()
-                .createQuery("from GoodPrice where shop.id = :shopId and good.id = :goodId")
-                .setInteger("shopId", goodPrice.getShop().getId())
-                .setInteger("goodId", goodPrice.getGood().getId())
-                .setCacheable(true)
-                .setMaxResults(1)
-                .uniqueResult();
-    }
-
-    @SuppressWarnings("unchecked")
-    public static List<GoodPrice> getGoodPricesInShop(int shopId) {
-        return (List<GoodPrice>)HibernateContext.getSession()
-                .createQuery("from GoodPrice where shop.id = :shopId order by good.id desc")
-                .setInteger("shopId", shopId)
-                .setCacheable(true)
-                .list();
-    }
-
-    @SuppressWarnings("unchecked")
-    public static List<GoodPrice> getAllGoodPrices() {
-        return (List<GoodPrice>)HibernateContext.getSession()
-                .createQuery("from GoodPrice order by shop.id desc, good.id desc")
-                .setCacheable(true)
-                .list();
-    }
-
-    @SuppressWarnings("unchecked")
     public static List<GoodAction> getGoodActionsInShop(int shopId) {
         return (List<GoodAction>)HibernateContext.getSession()
-                .createQuery("from GoodAction where goodPrice.shop.id = :shopId")
+                .createQuery("from GoodAction where shop.id = :shopId")
                 .setInteger("shopId", shopId)
                 .setCacheable(true)
                 .list();
@@ -171,7 +143,7 @@ public class ShopDao {
     @SuppressWarnings("unchecked")
     public static List<GoodAction> getAllGoodActions() {
         return (List<GoodAction>)HibernateContext.getSession()
-                .createQuery("from GoodAction order by goodPrice.shop.id desc, goodPrice.good.id desc")
+                .createQuery("from GoodAction order by shop.id desc, good.id desc")
                 .setCacheable(true)
                 .list();
     }

@@ -3,7 +3,6 @@ package com.barbazan.edadil.wicket.pages;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodActionPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodCategoryPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodPage;
-import com.barbazan.edadil.wicket.pages.good.CreateGoodPricePage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopAddressPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopCategoryPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopPage;
@@ -39,7 +38,6 @@ public class BasePage extends WebPage {
         add(new BookmarkablePageLink<>("createShopAddressLink", CreateShopAddressPage.class).add(getMenuAttributeModifier(CreateShopAddressPage.class)));
         add(new BookmarkablePageLink<>("createGoodCategoryLink", CreateGoodCategoryPage.class).add(getMenuAttributeModifier(CreateGoodCategoryPage.class)));
         add(new BookmarkablePageLink<>("createGoodLink", CreateGoodPage.class).add(getMenuAttributeModifier(CreateGoodPage.class)));
-        add(new BookmarkablePageLink<>("createGoodPriceLink", CreateGoodPricePage.class).add(getMenuAttributeModifier(CreateGoodPricePage.class)));
         add(new BookmarkablePageLink<>("createGoodActionLink", CreateGoodActionPage.class).add(getMenuAttributeModifier(CreateGoodActionPage.class)));
     }
 

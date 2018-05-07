@@ -5,7 +5,6 @@ import com.barbazan.edadil.utils.hibernate.HibernateContext;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodActionPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodCategoryPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodPage;
-import com.barbazan.edadil.wicket.pages.good.CreateGoodPricePage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopAddressPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopCategoryPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopPage;
@@ -55,7 +54,6 @@ public class WicketApplication extends WebApplication {
         mountPage("/createShopAddress", CreateShopAddressPage.class);
         mountPage("/createGoodCategory", CreateGoodCategoryPage.class);
         mountPage("/createGood", CreateGoodPage.class);
-        mountPage("/createGoodPrice", CreateGoodPricePage.class);
         mountPage("/createGoodAction", CreateGoodActionPage.class);
 
         initDatabase();

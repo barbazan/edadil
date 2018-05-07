@@ -19,7 +19,6 @@
     <cache name="com.barbazan.edadil.beans.Good" maxElementsInMemory="30000"/>
     <cache name="com.barbazan.edadil.beans.GoodAction" maxElementsInMemory="30000"/>
     <cache name="com.barbazan.edadil.beans.GoodCategory" maxElementsInMemory="3000"/>
-    <cache name="com.barbazan.edadil.beans.GoodPrice" maxElementsInMemory="30000"/>
     <cache name="com.barbazan.edadil.beans.Shop" maxElementsInMemory="300"/>
     <cache name="com.barbazan.edadil.beans.ShopAddress" maxElementsInMemory="3000"/>
     <cache name="com.barbazan.edadil.beans.ShopCategory" maxElementsInMemory="300"/>

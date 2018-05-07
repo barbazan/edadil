@@ -57,18 +57,6 @@
         <property name="name" not-null="true"/>
     </class>
     
-    <class name="com.barbazan.edadil.beans.GoodPrice" table="ed_good_price">
-        <cache usage="read-write"/>
-        <id name="id" column="id">
-            <generator class="sequence">
-                <param name="sequence">ed_good_price_id_seq</param>
-            </generator>
-        </id>
-        <many-to-one name="shop" foreign-key="none" not-null="true"/>
-        <many-to-one name="good" foreign-key="none" not-null="true"/>
-        <property name="price" type="float" not-null="true"/>
-    </class>
-
     <class name="com.barbazan.edadil.beans.GoodAction" table="ed_good_action">
         <cache usage="read-write"/>
         <id name="id" column="id">
@@ -76,10 +64,12 @@
                 <param name="sequence">ed_good_action_id_seq</param>
             </generator>
         </id>
-        <many-to-one name="goodPrice" foreign-key="none" not-null="true"/>
+        <many-to-one name="shop" foreign-key="none" not-null="true"/>
+        <many-to-one name="good" foreign-key="none" not-null="true"/>
         <property name="startDate" type="timestamp" not-null="true"/>
         <property name="endDate" type="timestamp" not-null="true"/>
-        <property name="discount" type="float" not-null="true"/>
+        <property name="price" type="float" not-null="true"/>
+        <property name="discountPrice" type="float" not-null="true"/>
     </class>
 
 </hibernate-mapping>

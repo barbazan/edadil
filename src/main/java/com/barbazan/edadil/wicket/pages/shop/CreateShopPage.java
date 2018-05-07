@@ -5,7 +5,7 @@ import com.barbazan.edadil.beans.ShopCategory;
 import com.barbazan.edadil.dao.ShopDao;
 import com.barbazan.edadil.utils.hibernate.HibernateContext;
 import com.barbazan.edadil.wicket.pages.BasePage;
-import com.barbazan.edadil.wicket.pages.good.CreateGoodPricePage;
+import com.barbazan.edadil.wicket.pages.good.CreateGoodActionPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -18,7 +18,6 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import java.util.List;
 
@@ -73,7 +72,7 @@ public class CreateShopPage extends BasePage {
         }) {
             @Override
             protected void populateItem(ListItem<Shop> item) {
-                Link link = new BookmarkablePageLink("shopLink", CreateGoodPricePage.class, new PageParameters().set("shopId", item.getModelObject().getId()));
+                Link link = new BookmarkablePageLink("shopLink", CreateGoodActionPage.class);
                 link.add(new Label("name", (IModel<String>) () -> item.getModelObject().getName()));
                 item.add(link);
                 item.add(new Label("shopCategory", (IModel<String>) () -> item.getModelObject().getShopCategory().getName()));
