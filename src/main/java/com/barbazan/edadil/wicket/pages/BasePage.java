@@ -4,14 +4,16 @@ import com.barbazan.edadil.wicket.pages.good.CreateGoodActionPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodCategoryPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodPricePage;
-import com.barbazan.edadil.wicket.pages.shop.CreateShopCategoryPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopAddressPage;
+import com.barbazan.edadil.wicket.pages.shop.CreateShopCategoryPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopPage;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 public class BasePage extends WebPage {
@@ -28,6 +30,7 @@ public class BasePage extends WebPage {
     private void init() {
         add(new FeedbackPanel("feedbackPanel"));
         initMenu();
+        add(new Label("renderTime", (IModel) () -> System.currentTimeMillis() - getRequestCycle().getStartTime()));
     }
 
     private void initMenu() {
