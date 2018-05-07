@@ -8,12 +8,11 @@ public enum SHOP {
     SHOP_4("Галамарт"),
     SHOP_5("Рамстор"),
     SHOP_6("Грин"),
-    SHOP_7("Вкус"),
-    SHOP_8("Март"),
-    SHOP_9("Смолл"),
-    SHOP_10("Алма"),
-    SHOP_11("Апрель"),
-    SHOP_12("А2");
+    SHOP_7("Вкус Март"),
+    SHOP_8("Смолл"),
+    SHOP_9("Алма"),
+    SHOP_10("Апрель"),
+    SHOP_11("А2");
 
     public String name;
 
