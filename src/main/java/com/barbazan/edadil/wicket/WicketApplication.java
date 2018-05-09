@@ -11,11 +11,8 @@ import com.barbazan.edadil.wicket.pages.shop.CreateShopPage;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Application;
 import org.apache.wicket.RuntimeConfigurationType;
-import org.apache.wicket.Session;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
-import org.apache.wicket.request.Request;
-import org.apache.wicket.request.Response;
 import org.apache.wicket.settings.RequestCycleSettings;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -48,6 +45,7 @@ public class WicketApplication extends WebApplication {
         getRequestCycleSettings().setRenderStrategy(RequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
         getMarkupSettings().setDefaultMarkupEncoding("UTF-8");
         getRequestCycleSettings().setResponseRequestEncoding("UTF-8");
+        getRequestCycleListeners().add(new CustomRequestCycleListener());
 
         mountPage("/createShopCategory", CreateShopCategoryPage.class);
         mountPage("/createShop", CreateShopPage.class);
@@ -57,11 +55,6 @@ public class WicketApplication extends WebApplication {
         mountPage("/createGoodAction", CreateGoodActionPage.class);
 
         initDatabase();
-    }
-
-    @Override
-    public Session newSession(Request request, Response response) {
-        return new WicketSession(request);
     }
 
     public static boolean isDevMode() {
