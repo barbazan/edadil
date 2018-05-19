@@ -8,6 +8,15 @@ public class Good implements Serializable {
     private String name;
     private GoodCategory goodCategory;
 
+    public Good() {
+    }
+
+    public Good(int id, String name, GoodCategory goodCategory) {
+        this.id = id;
+        this.name = name;
+        this.goodCategory = goodCategory;
+    }
+
     public int getId() {
         return id;
     }

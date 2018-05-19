@@ -16,6 +16,12 @@ public class Shop implements Serializable {
         this.shopCategory = shopCategory;
     }
 
+    public Shop(int id, String name, ShopCategory shopCategory) {
+        this.id = id;
+        this.name = name;
+        this.shopCategory = shopCategory;
+    }
+
     public int getId() {
         return id;
     }

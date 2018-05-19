@@ -2,6 +2,7 @@ package com.barbazan.edadil.wicket;
 
 import com.barbazan.edadil.dao.ShopDao;
 import com.barbazan.edadil.utils.hibernate.HibernateContext;
+import com.barbazan.edadil.wicket.pages.json.GetJsonPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodActionPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodCategoryPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodPage;
@@ -53,6 +54,7 @@ public class WicketApplication extends WebApplication {
         mountPage("/createGoodCategory", CreateGoodCategoryPage.class);
         mountPage("/createGood", CreateGoodPage.class);
         mountPage("/createGoodAction", CreateGoodActionPage.class);
+        mountPage("/getJson", GetJsonPage.class);
 
         initDatabase();
     }

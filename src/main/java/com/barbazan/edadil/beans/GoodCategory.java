@@ -14,6 +14,11 @@ public class GoodCategory implements Serializable {
         this.name = name;
     }
 
+    public GoodCategory(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

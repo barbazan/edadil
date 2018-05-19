@@ -16,6 +16,11 @@ public class ShopCategory implements Serializable {
         this(shop_category.name);
     }
 
+    public ShopCategory(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public ShopCategory(String name) {
         this.name = name;
     }
