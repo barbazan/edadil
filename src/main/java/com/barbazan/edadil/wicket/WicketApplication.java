@@ -6,6 +6,7 @@ import com.barbazan.edadil.wicket.pages.json.GetJsonPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodActionPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodCategoryPage;
 import com.barbazan.edadil.wicket.pages.good.CreateGoodPage;
+import com.barbazan.edadil.wicket.pages.json.TestJsonPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopAddressPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopCategoryPage;
 import com.barbazan.edadil.wicket.pages.shop.CreateShopPage;
@@ -55,6 +56,7 @@ public class WicketApplication extends WebApplication {
         mountPage("/createGood", CreateGoodPage.class);
         mountPage("/createGoodAction", CreateGoodActionPage.class);
         mountPage("/getJson", GetJsonPage.class);
+        mountPage("/testJson", TestJsonPage.class);
 
         initDatabase();
     }
