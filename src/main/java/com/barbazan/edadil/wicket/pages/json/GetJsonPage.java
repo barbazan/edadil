@@ -21,6 +21,7 @@ public class GetJsonPage extends WebPage {
     private static final String METHOD_PARAM_NAME = "m";
     private static final String METHOD_GET_SHOP_CATEGORIES = "get_shop_categories";
     private static final String METHOD_GET_SHOPS = "get_shops";
+    private static final String METHOD_GET_SHOP_ADDRESSES = "get_shop_addresses";
     private static final String METHOD_GET_GOOD_CATEGORIES = "get_good_categories";
     private static final String METHOD_GET_GOODS = "get_goods";
     private static final String METHOD_GET_GOOD_ACTIONS = "get_good_actions";
@@ -38,6 +39,7 @@ public class GetJsonPage extends WebPage {
             switch (method) {
                 case METHOD_GET_SHOP_CATEGORIES: return gson.toJson(ShopDao.getAllShopCategories());
                 case METHOD_GET_SHOPS: return gson.toJson(ShopDao.getAllShops());
+                case METHOD_GET_SHOP_ADDRESSES: return gson.toJson(ShopDao.getAllShopAddresses());
                 case METHOD_GET_GOOD_CATEGORIES: return gson.toJson(ShopDao.getAllGoodCategories());
                 case METHOD_GET_GOODS: return gson.toJson(ShopDao.getAllGoods());
                 case METHOD_GET_GOOD_ACTIONS: return gson.toJson(ShopDao.getAllGoodActions());
