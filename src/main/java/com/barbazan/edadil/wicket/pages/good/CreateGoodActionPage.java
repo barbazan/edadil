@@ -10,10 +10,7 @@ import com.barbazan.edadil.wicket.pages.BasePage;
 import com.googlecode.wicket.jquery.core.Options;
 import com.googlecode.wicket.jquery.ui.form.datepicker.DatePicker;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.form.DropDownChoice;
-import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.IChoiceRenderer;
-import org.apache.wicket.markup.html.form.RequiredTextField;
+import org.apache.wicket.markup.html.form.*;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -75,7 +72,7 @@ public class CreateGoodActionPage extends BasePage {
                 }).setRequired(true));
                 add(new DatePicker("startDate", "dd/MM/yyyy", new Options()).setRequired(true));
                 add(new DatePicker("endDate", "dd/MM/yyyy", new Options()).setRequired(true));
-                add(new RequiredTextField<Float>("price"));
+                add(new TextField<Float>("price"));
                 add(new RequiredTextField<Float>("discountPrice"));
             }
             @Override
