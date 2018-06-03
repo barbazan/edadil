@@ -10,8 +10,9 @@ import java.util.*;
  */
 public class Time implements Comparable {
 
+    public static final String DATE_PATTEN = "dd MMM yyyy";
     public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd MMM HH:mm", new Locale("RU"));
-    public static SimpleDateFormat DATE_FORMAT_2 = new SimpleDateFormat("dd MMM yyyy", new Locale("RU"));
+    public static SimpleDateFormat DATE_FORMAT_2 = new SimpleDateFormat(DATE_PATTEN, new Locale("RU"));
     public static SimpleDateFormat DATE_FORMAT_3 = new SimpleDateFormat("dd MMM yyyy [HH:mm]", new Locale("RU"));
 
     public static final long SECOND_MILLIS = 1000;

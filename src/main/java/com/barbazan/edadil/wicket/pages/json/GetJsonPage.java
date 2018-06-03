@@ -16,6 +16,8 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
+import static com.barbazan.edadil.utils.Time.DATE_PATTEN;
+
 public class GetJsonPage extends WebPage {
 
     private static final String METHOD_PARAM_NAME = "m";
@@ -35,6 +37,8 @@ public class GetJsonPage extends WebPage {
             builder.registerTypeAdapter(GoodCategory.class, new GoodCategoryConverter());
             builder.registerTypeAdapter(Shop.class, new ShopConverter());
             builder.registerTypeAdapter(Good.class, new GoodConverter());
+            builder.serializeNulls();
+            builder.setDateFormat(DATE_PATTEN);
             Gson gson = builder.create();
             switch (method) {
                 case METHOD_GET_SHOP_CATEGORIES: return gson.toJson(ShopDao.getAllShopCategories());
