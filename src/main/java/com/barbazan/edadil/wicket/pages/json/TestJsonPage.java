@@ -20,6 +20,7 @@ public class TestJsonPage extends BasePage {
     public TestJsonPage() {
         try {
             String content = HttpUtil.getContent("http://edadil.dungeo.mobi/getJson?m=get_good_categories");
+            System.out.println("content = " + content);
             GsonBuilder builder = new GsonBuilder();
             builder.registerTypeAdapter(ShopCategory.class, new ShopCategoryConverter());
             builder.registerTypeAdapter(GoodCategory.class, new GoodCategoryConverter());
